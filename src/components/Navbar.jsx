@@ -5,7 +5,7 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-sm navbar-light bg-light" id="nav">
                 <div className="container-fluid">
-                <img className="image" id="image1" src="Logo.png"></img>
+                    <img className="image" id="image1" src="Logo.png"></img>
                 </div>
                 <a className="navbar-brand fs-5" href="#Home">Home</a>
                 <a className="navbar-brand fs-5" href="#About me">About</a>

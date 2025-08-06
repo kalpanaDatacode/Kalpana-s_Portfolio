@@ -14,7 +14,7 @@ const Skillbar = (props) => {
     )
 }
 
-const About=() =>{
+const About = () => {
     return (
         <section id="About" >
             <div id="image3">
