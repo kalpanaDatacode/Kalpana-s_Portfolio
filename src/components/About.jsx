@@ -1,39 +1,46 @@
-import React from "react"
-
-const Skillbar = (props) => {
-    return (
-        <div className="skill-bar ">
-            <h4>{props.title}</h4>
-            <div className="progress-container">
-                <div className="progress-fill" style={{ width: `${props.percentage}%` }}>
-                    <span className="circle"></span>
-                </div>
-            </div>
-
-        </div>
-    )
-}
+import React from 'react';
 
 const About = () => {
-    return (
-        <section id="About" >
-            <div id="image3">
-                <img src="image2.png"></img>
-            </div>
-            <div>
-                <h1>About Me</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Veritatis qui non assumenda
-                    vero ipsa quis excepturi.</p>
-                <div className="skills">
-                    <Skillbar title="UX" percentage={80} />
-                    <Skillbar title="Website Design" percentage={70} />
-                    <Skillbar title="App Design" percentage={90} />
-                    <Skillbar title="Graphic Design" percentage={80} />
-                </div>
+  const progress = [
+    { heading: "UI/UX", percentage: 80 },
+    { heading: "C++", percentage: 90 },
+    { heading: "Python,Java,C", percentage: 70 },
+  ];
 
+  return (
+    <div className="row mx-0 align-items-center ms-4 me-4 mt-4">
+      <div className="col-12 col-md-6 d-flex justify-content-center">
+        <img className="about-img img-fluid rounded-circle" style={{ maxWidth: "100%", width: "300px", height: "300px" }} src="image2.jpg" alt="About" />
+      </div>
+      <div className="col-12 col-md-6 text-start about-text">
+        <h1>About Me</h1>
+        <p>
+          With a strong foundation in C++, and familiarity with Python, Java, and C,
+          I’ve developed a solid understanding of programming and problem-solving.
+          In the field of web development, I have hands-on experience with HTML, CSS,
+          JavaScript, and React, which I use to create engaging digital experiences.
+        </p>
+        {progress.map((item,index) => (
+          <div key={index} className="mb-4">
+            <h5>{item.heading}</h5>
+            <div className="custom-progress">
+              <div
+                className="custom-progress-fill"
+                style={{
+                  width: `${item.percentage}%`,
+                  backgroundColor: "#fd6200",
+                  height: "10px"
+                }}
+              >
+                <span className="custom-progress-circle"></span>
+              </div>
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
-        </section>
-    )
-}
+  );
+};
+
 export default About;

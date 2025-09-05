@@ -1,38 +1,55 @@
-
-import React from "react"
-
-const Card = (props) => {
-    return (
-
-
-        <div className="card d-grid mx-auto my-4 text-center  bg-#f8f8f8" style={{ width: "15rem", marginBottom: "1rem" }} >
-            <div className=" img-fluid p-3 ">
-                <img src={props.image} className="card-image-top " alt="image"></img>
-            </div>
-            <div className="card-body row">
-                <h3 className="card-title">{props.title}</h3>
-                <p className="card-text">Lorem ipsum dolor sit amet <br />consectetur adipisicing elit. <br />Officiis architecto voluptatibus.</p>
-            </div>
-        </div>
-
-
-    );
-};
+import React from "react";
+import Card from "../components/Card";
 
 const Services = () => {
-    return (
-        <section id="services" className="container ">
+  return (
+    <section id="services" className="py-5">
+      <h1 className="text-center fw-bold mb-3">Services</h1>
+      <p className="text-center text-muted mb-5 px-2 px-md-5 lh-base">
+        I offer a range of services that combine creativity, design, and
+        development <br />
+        to build engaging and user-friendly digital experiences.
+      </p>
 
+      <div className="row mx-0 justify-content-center align-items-stretch g-4 me-md-5 ms-md-5 ms-3 me-3">
+        <div className="col-12 col-md-3 d-flex">
+          <Card
+            className="h-90"
+            title="UI/UX"
+            image="Vector.png"
+            para="Designing intuitive and visually appealing interfaces with a focus on smooth navigation and better user experiences."
+          />
+        </div>
 
-            <h1 className="text-center ">Services</h1>
-            <p className="text-center ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam porro expedita <br />inventore recusandae veritatis vitae, aliquid doloremque fugit.</p>
-            <div className="d-flex flex-row justify-content-center  flex-wrap">
-                <Card className="col-md-4 img-fluid p-3" title="UI/UX" image={"Vector.png"} />
-                <Card className="col-md-4" title="Web Design" image={"Vector1.png"} />
-                <Card className="col-md-4" title="App design" image={"Group1.png"} />
-                <Card className="col-md-4" title="Graphic design" image={"Vector (2).png"} />
-            </div>
-        </section>
-    )
-}
+        <div className="col-12 col-md-3 d-flex">
+          <Card
+            className="h-90"
+            title="AI & ML (Beginner Projects)"
+            image="Vector1.png"
+            para="Capable of working on basic Artificial Intelligence and Machine Learning projects, with curiosity to explore data-driven solutions."
+          />
+        </div>
+
+        <div className="col-12 col-md-3 d-flex">
+          <Card
+            className="h-90"
+            title="Responsive Websites"
+            image="Group1.png"
+            para="Creating fully responsive, mobile-friendly websites using Bootstrap, ensuring compatibility across devices."
+          />
+        </div>
+
+        <div className="col-12 col-md-3 d-flex">
+          <Card
+            className="h-90"
+            title="Logic Building (C++ & DSA)"
+            image="Vector (2).png"
+            para="Strong problem-solving foundation with C++ and Data Structures & Algorithms, helping in writing optimized and efficient code."
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default Services;

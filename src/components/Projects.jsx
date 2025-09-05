@@ -1,54 +1,80 @@
+import React, { useState } from "react";
+import Card1 from "../components/Card1";
 
-import React from "react"
+const Projects = () => {
+    const [active, setActive] = useState("Web Development");
 
-const Card = (props) => {
     return (
-
-
-        <div className="card d-grid mx-auto my-2 text-center mt-4 bg-#f8f8f8" style={{ width: "20rem", marginBottom: "1rem" }} >
-          
-            <div className="img-fluid">
-                <img src={props.image} className="card-image-top img-fluid mx-auto d-block"  alt="image" ></img>
+        <section id="projects" className="py-2">
+            <h1 className="text-center fw-bold mb-3">Projects</h1>
+            <p className="text-center text-muted mb-5 px-5 px-md-5 lh-base">
+                Here are some of the projects I’ve worked on, ranging from responsive <br />
+                frontend web applications to a beginner-level AI/ML experiment.<br />
+                Each project reflects my skills, creativity, and eagerness to explore<br />
+                new technologies.
+            </p>
+            <div className="d-flex justify-content-center flex-wrap gap-2 mb-5">
+                <button
+                    className={`button11 btn button-outline-warning rounded-pill border-0 px-3 ${active === "All" ? "active" : ""
+                        }`}
+                    onClick={() => setActive("All")}
+                >
+                    All
+                </button>
+                <button
+                    className={`button11 btn button-outline-warning rounded-pill border-0 px-3 ${active === "Web Development" ? "active" : ""
+                        }`}
+                    onClick={() => setActive("Web Development")}
+                >
+                    Web Development
+                </button>
+                <button
+                    className={`button11 btn button-outline-warning rounded-pill border-0 px-3 ${active === "AI/ML" ? "active" : ""
+                        }`}
+                    onClick={() => setActive("AI/ML")}
+                >
+                    AI/ML
+                </button>
             </div>
-            <div className="card-body row">
-                <h6 className="card-title "style={{ color: "#FD6F00" }}>Web Design</h6>
-                <p className="card-text " style={{ color: "black",fontStyle:"bold",fontWeight:"700"}}>{props.para} </p>
+            <div className="row mx-0 g-4 d-flex justify-content-center align-items-center ms-md-5 me-md-5 ms-3 me-3">
+                {(active === "All" || active === "Web Development") && (
+                    <div className="col-12 col-sm-6 col-md-4">
+                        <Card1
+                            className="h-90"
+                            category="Web Development(Html,Css,Js)"
+                            para="BLOGYwow"
+                            image="project3.jpeg"
+                            link="https://kalpanapatidar.github.io/BLOGYwow/"
+                        />
+                    </div>
+                )}
+
+                {(active === "All" || active === "Web Development") && (
+                    <div className="col-12 col-sm-6 col-md-4">
+                        <Card1
+                            className="h-90"
+                            category="Web Development(React.js)"
+                            para="Swiggy-Clone"
+                            image="project1.jpeg"
+                            link="https://kalpanapatidar.github.io/swiggy-clone/"
+                        />
+                    </div>
+                )}
+
+                {(active === "All" || active === "AI/ML") && (
+                    <div className="col-12 col-sm-6 col-md-4">
+                        <Card1
+                            className="h-90"
+                            category="AI/ML"
+                            para="Employee Salary Prediction App"
+                            image="project2.jpeg"
+                            link="https://kalpanapatidar-employee-salary-predicti-copy-of-employee-jcevl1.streamlit.app/"
+                        />
+                    </div>
+                )}
             </div>
-        </div>
-
-
+        </section>
     );
 };
 
-const Projects = () => {
-    const buttons=["All","UI/UX","Web Design","Appp Design","Graphic Design"];
-    return (
-        <section id="projectss " className="container ">
-            
-
-
-            <h1 className="text-center mt-5">Projects</h1>
-            <p className="text-center ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam porro expedita <br />inventore recusandae veritatis vitae, aliquid doloremque fugit.</p>
-              <div className="  d-flex justify-content-center flex-wrap gap-2 mt-3 mb-4 ">
-                {
-                    buttons.map((item,index)=>(
-                        <button key={index} className="btn btn-outline-primary">
-                            {item}
-                        </button>
-                    
-                ))
-            }
-
-            </div>
-            
-            <div className="d-flex flex-row justify-content-center  flex-wrap">
-                
-                <Card className="col-md-3 " para="Airlcalling Landing Page Design" image={"Group 24.png"} />
-                <Card className="col-md-3" para="Airlcalling Landing Page Design" image={"Group 26 (1).png"} />
-                <Card className="col-md-3" para="Airlcalling Landing Page Design" image={"Group 27 (1).png"} />
-               
-            </div>
-        </section>
-    )
-}
 export default Projects;
